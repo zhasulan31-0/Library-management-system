@@ -3,14 +3,13 @@ public class Book {
     private String author;
     private boolean isBorrowed;
 
-    // constructor
     public Book(String title, String author) {
         this.title = title;
         this.author = author;
         this.isBorrowed = false;
     }
 
-    // getters and setters
+
     public String getTitle() {
         return title;
     }

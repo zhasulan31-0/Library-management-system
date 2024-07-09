@@ -3,27 +3,24 @@ import java.util.ArrayList;
 public class Library {
     private ArrayList<Book> books;
 
-    // constructor
     public Library() {
         books = new ArrayList<>();
     }
 
-    // Method for add books into library
     public void addBook(Book book) {
         books.add(book);
     }
 
-    // Method that shows a list of available books
     public void displayAvailableBooks() {
-        System.out.println("Available books:");
-        for (Book book : books) {
-            if (!book.isBorrowed()) {
-                System.out.println(book.getTitle() + " by " + book.getAuthor());
-            }
-        }
+    System.out.println("Library Inventory:");
+    for (Book book : books) {
+        String status = book.isBorrowed() ? "Not Available" : "Available";
+        System.out.println(book.getTitle() + " by " + book.getAuthor() + " - " + status);
     }
+}
 
-    // Method to borrow book
+
+
     public boolean borrowBook(String title) {
         for (Book book : books) {
             if (book.getTitle().equalsIgnoreCase(title) && !book.isBorrowed()) {
@@ -34,7 +31,6 @@ public class Library {
         return false;
     }
 
-    // Method to return book
     public boolean returnBook(String title) {
         for (Book book : books) {
             if (book.getTitle().equalsIgnoreCase(title) && book.isBorrowed()) {
@@ -45,3 +41,4 @@ public class Library {
         return false;
     }
 }
+
